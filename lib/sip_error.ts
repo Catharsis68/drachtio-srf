@@ -1,0 +1,35 @@
+import assert from 'assert';
+
+/**
+ * Class representing a SIP non-success response to a transaction
+ * @extends {Error}
+ */
+class SipError extends Error {
+  status: number;
+  reason?: string;
+
+  /**
+   * Create a SipError object
+   *
+   * @constructor
+   * @param  {number}  status SIP final status
+   * @param  {string} [reason] reason for failure; if not provided
+   * the standard reason associated with the provided SIP status is used
+   */
+  constructor(status: number, reason?: string) {
+    super() ;
+
+    assert.ok(typeof status === 'number', 'first argument to SipError must be number');
+    assert.ok(typeof reason === 'string' || typeof reason === 'undefined',
+      'second argument to SipError, if provided, must be a string');
+
+    this.name = 'SipError' ;
+    this.status = status ;
+    if (reason) this.reason = reason ;
+    this.message = 'Sip non-success response: ' + this.status ;
+
+    Error.captureStackTrace(this, SipError);
+  }
+}
+
+export default SipError;
