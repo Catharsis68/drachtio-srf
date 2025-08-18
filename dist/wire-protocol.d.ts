@@ -1,0 +1,32 @@
+import { EventEmitter } from 'events';
+export default class WireProtocol extends EventEmitter {
+    private _logger;
+    private mapIncomingMsg;
+    private enablePing;
+    private pingInterval;
+    private mapTimerPing;
+    private server;
+    private host;
+    private port;
+    private reconnectOpts;
+    private reconnectVars;
+    private closing;
+    private socket;
+    constructor(opts: any);
+    connect(opts: any): void;
+    _evalPingOpts(opts: any): void;
+    startPinging(socket: any): void;
+    _stopPinging(socket: any): void;
+    listen(opts: any): any;
+    get isServer(): any;
+    get isClient(): boolean;
+    setLogger(logger: any): void;
+    removeLogger(): void;
+    installListeners(socket: any): void;
+    initializeRetryVars(): void;
+    _onConnectionGone(): void;
+    send(socket: any, msg: any): string;
+    _onData(socket: any, msg: any): void;
+    disconnect(socket: any): void;
+    close(callback: any): void;
+}

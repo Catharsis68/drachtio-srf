@@ -1,0 +1,32 @@
+import * as parser from './parser';
+import { SipMessage as SipMessageInterface } from '../types';
+declare class SipMessage implements SipMessageInterface {
+    headers: any;
+    body: string;
+    method: any;
+    version: any;
+    status: any;
+    reason: any;
+    uri: any;
+    payload: object[];
+    raw: string;
+    type: "request" | "response";
+    source: "network" | "application";
+    source_address: string;
+    source_port: string;
+    protocol: string;
+    stackTime: string;
+    constructor(msg?: any);
+    get calledNumber(): any;
+    get callingNumber(): any;
+    get callingName(): any;
+    get canFormDialog(): boolean;
+    getHeaderName(hdr: string): string | undefined;
+    set(hdr: any, value?: any): this;
+    get(hdr: string): any;
+    has(hdr: string): boolean;
+    getParsedHeader(hdr: string): any;
+    toString(): string;
+    static parseUri: typeof parser.parseUri;
+}
+export default SipMessage;

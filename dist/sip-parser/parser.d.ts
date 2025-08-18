@@ -1,0 +1,10 @@
+export declare function getParser(hdr: any): any;
+export declare function getStringifier(hdr: any): any;
+export declare function getHeaderName(hdr: any): any;
+export declare function parseUri(s: any): any;
+export declare function stringifyUri(uri: any): string;
+declare function stringifyAuthHeader(a: any): string;
+export declare const stringifyAuthHeaderExport: typeof stringifyAuthHeader;
+export declare function stringifySipMessage(m: any): string;
+export declare function parseSipMessage(s: any, lazy: any): any;
+export {};
