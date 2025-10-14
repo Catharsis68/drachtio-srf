@@ -84,3 +84,48 @@ Please visit [drachtio.org](https://drachtio.org) for getting started instructio
     });
   }
   ```
+
+## Testing
+
+This project uses [Vitest](https://vitest.dev/) for testing and [Testcontainers](https://testcontainers.com/) for integration tests.
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run unit tests only
+npm run test:unit
+
+# Run integration tests (requires Docker)
+npm run test:integration
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+### Legacy Tests
+
+The original Mocha/Tape tests are still available:
+
+```bash
+# Run legacy integration tests
+npm run legacy:test
+
+# Run legacy unit tests
+npm run legacy:unittests
+```
+
+### Integration Tests
+
+Integration tests use Testcontainers to automatically spin up Docker containers with drachtio-server. This ensures tests run in an isolated, reproducible environment.
+
+Requirements:
+- Docker must be installed and running
+- Sufficient permissions to create Docker containers
+
+For more information on the migration to modern testing tools, see [MIGRATION.md](./MIGRATION.md).
