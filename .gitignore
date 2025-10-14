@@ -36,3 +36,8 @@ node_modules
 .DS_Store
 
 examples/*
+
+# TypeScript build output
+dist/
+dist-test/
+*.tsbuildinfo
